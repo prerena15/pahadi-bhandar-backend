@@ -15,6 +15,11 @@ app.use(cors({ origin: FRONTEND_URL, credentials: true }));
 
 app.use(express.json());
 
+// ✅ Root route (so you don’t see "Cannot GET /")
+app.get("/", (req, res) => {
+  res.send("✅ Pahadi Bhandar Backend is running...");
+});
+
 // Routes
 app.use("/api/auth", authRoutes);
 app.use("/api/cart", cartRoutes);
